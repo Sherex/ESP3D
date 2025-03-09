@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [esp32, esp8266]
+        target: [esp32dev, esp8266]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.x
