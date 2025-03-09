@@ -1,6 +1,6 @@
 name: build-ci-2.0
 
-on: [pull_request, push]
+on: [pull_request, push, workflow_dispatch]
 
 jobs:
   build:
@@ -50,10 +50,9 @@ jobs:
         run: ls -latr
 
       - name: Tree files
-        run: tree
+        run: tree -a
 
-      #- name: Upload artifact
-      #  continue-on-error: true
-      #  uses: actions/upload-artifact@v4
-      #  with:
-      #    path: ./
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./.pioenvs/esp8266/firmware.bin
